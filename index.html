@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .artwork {
+            margin: 10px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Art Gallery</h1>
+    </header>
+
+    <div class="gallery">
+        <div class="artwork">
+            <img src="artwork1.jpg" alt="Artwork 1">
+            <h2>Artwork 1</h2>
+            <button onclick="showDetails('Artwork 1', 'Description of Artwork 1')">Show Details</button>
+        </div>
+
+        <div class="artwork">
+            <img src="artwork2.jpg" alt="Artwork 2">
+            <h2>Artwork 2</h2>
+            <button onclick="showDetails('Artwork 2', 'Description of Artwork 2')">Show Details</button>
+        </div>
+
+        <!-- More artwork items can be added here -->
+    </div>
+
+    <div id="detailsModal" style="display: none; background: rgba(0, 0, 0, 0.5); position: fixed; top: 0; left: 0; width: 100%; height: 100%; justify-content: center; align-items: center;">
+        <div style="background: white; padding: 20px; border-radius: 10px; text-align: center;">
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+            <button onclick="hideDetails()">Close</button>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2023 Art Gallery. All rights reserved.
+    </footer>
+
+    <script>
+        function showDetails(title, description) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalDescription').innerText = description;
+            document.getElementById('detailsModal').style.display = 'flex';
+        }
+
+        function hideDetails() {
+            document.getElementById('detailsModal').style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
